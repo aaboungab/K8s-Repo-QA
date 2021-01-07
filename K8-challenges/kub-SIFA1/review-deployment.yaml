@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: todo-list
+  name: todo-list
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo-list
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: todo-list
+    spec:
+      containers:
+      - image: aaboungab/flaskapp:v1.1
+        name: flaskapp
+        ports:
+        - containerPort: 5000
+        env:
+        - name: DB_URI
+          value: "mysql+pymysql://root:root@mysql:3306/review_db"

@@ -1,0 +1,3 @@
+1. Create a Pod template for the mysql:5.7 image. You will need to set the MYSQL_ROOT_PASSWORD and MYSQL_DATABASE environment variables for the Pod to succeed.
+    >       Log in to the Pod using exec.
+    >       Try to open and login to the mysql client using mysql -p.

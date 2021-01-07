@@ -1,0 +1,4 @@
+1. Try to accomplish what was done in the tutorial, except by using template files (declarative YAML files)
+2. Configure a pipeline which utilises namespaces
+    >   Deploy any changes on a master branch of the repository to a production namespace
+    >   Deploy any changes on a development branch of the repository to a development namespace

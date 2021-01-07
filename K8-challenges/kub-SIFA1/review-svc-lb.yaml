@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2021-01-07T17:21:34Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    app: todo-list
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:app: {}
+      f:spec:
+        f:externalTrafficPolicy: {}
+        f:ports:
+          .: {}
+          k:{"port":5000,"protocol":"TCP"}:
+            .: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:app: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: kubectl-expose
+    operation: Update
+    time: "2021-01-07T17:21:34Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:finalizers:
+          .: {}
+          v:"service.kubernetes.io/load-balancer-cleanup": {}
+      f:status:
+        f:loadBalancer:
+          f:ingress: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-01-07T17:21:39Z"
+  name: todo-list
+  namespace: default
+  resourceVersion: "39344"
+  selfLink: /api/v1/namespaces/default/services/todo-list
+  uid: 876aa899-90a3-4964-9697-0a46aa14105b
+spec:
+  clusterIP: 10.0.88.154
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 30972
+    port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: todo-list
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 51.132.49.244
